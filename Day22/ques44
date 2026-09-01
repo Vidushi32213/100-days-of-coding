@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, num = 1, den = 2;
+    float sum = 0;
+
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+
+    for (i = 1; i <= n; i++) {
+        if (i == 1)
+            sum += 1;
+        else {
+            sum += (float)num / den;
+            num += 2;
+            den += 2;
+        }
+    }
+
+    printf("Sum of the series = %.2f\n", sum);
+
+    return 0;
+}
