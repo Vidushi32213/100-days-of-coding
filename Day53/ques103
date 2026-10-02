@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int a[100], n;
+    int i, total = 0, left = 0;
+    int pivot = -1;
+
+    printf("Enter size: ");
+    scanf("%d", &n);
+
+    printf("Enter elements: ");
+
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+        total = total + a[i];
+    }
+
+    for (i = 0; i < n; i++) {
+
+        if (left == total - left - a[i]) {
+            pivot = i;
+            break;
+        }
+
+        left = left + a[i];
+    }
+
+    printf("%d", pivot);
+
+    return 0;
+}
