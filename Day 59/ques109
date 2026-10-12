@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, k, i, j;
+
+    printf("Enter size: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    printf("Enter elements: ");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter k: ");
+    scanf("%d", &k);
+
+    if(k > n || k <= 0)
+    {
+        printf("Invalid k");
+        return 0;
+    }
+
+    int maxSum = 0;
+
+    // Sum of first k elements
+    for(i = 0; i < k; i++)
+    {
+        maxSum = maxSum + arr[i];
+    }
+
+    for(i = 1; i <= n - k; i++)
+    {
+        int sum = 0;
+
+        for(j = i; j < i + k; j++)
+        {
+            sum = sum + arr[j];
+        }
+
+        if(sum > maxSum)
+        {
+            maxSum = sum;
+        }
+    }
+
+    printf("%d", maxSum);
+
+    return 0;
+}
