@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+enum Gender {
+    MALE,
+    FEMALE,
+    OTHER
+};
+
+struct Person {
+    char name[50];
+    int age;
+    enum Gender gender;
+};
+
+int main() {
+    struct Person p;
+    int choice;
+
+    printf("Enter name: ");
+    scanf("%49s", p.name);
+
+    printf("Enter age: ");
+    scanf("%d", &p.age);
+
+    printf("Enter gender (0-Male, 1-Female, 2-Other): ");
+    scanf("%d", &choice);
+
+    p.gender = choice;
+
+    printf("\nName: %s\n", p.name);
+    printf("Age: %d\n", p.age);
+
+    if(p.gender == MALE)
+        printf("Gender: Male");
+    else if(p.gender == FEMALE)
+        printf("Gender: Female");
+    else if(p.gender == OTHER)
+        printf("Gender: Other");
+    else
+        printf("Gender: Invalid");
+
+    return 0;
+}
